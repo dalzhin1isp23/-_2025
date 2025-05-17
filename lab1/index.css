@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: beige;
+}
+div{
+    text-align: center;
+    margin: 20px;    
+    float: left;
+}
+textarea{
+    padding: 10px;
+    width: 300px;
+    height: 600px;
+    border-radius: 20px;
+}
+.none_sh textarea{
+    background-color: antiquewhite;
+}
+.sh textarea{
+    background-color: rgb(203, 142, 253);
+}
+.najat{
+    background-color: azure;
+    border-radius: 20px;
+    height: 30px;
+    width: 100px;
+}
