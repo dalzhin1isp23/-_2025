@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Шифрование</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Шифрование , делал Далжин Яков 1ИСП-22</h1>
-    <div class="none_sh">
-        <p>не зашифрованный</p>
-        <textarea id="ne_sh" ></textarea>
+
+    <div class="wrapper">
+        <div class="panel">
+            <button class="najat" onclick="shifr()">Зашифровать</button>
+            <button class="info-btn" onclick="alphavit()">?</button>
+        </div>
+
+
+        <div class="text-container">
+            <div class="text-no-shifr">
+                <div>Обычный</div>
+                <textarea id="ne_sh"></textarea>
+            </div>
+            
+            <div  class="text-shifr">
+                <div>Зашифрован</div>
+                <textarea id="sh"></textarea>
+            </div>
+        </div>
     </div>
-   
-    <div  class="sh">
-        <p>зашифрованный</p>
-        <textarea id="sh"></textarea>
-    </div>
-    <div class="shifr">
-        <p>'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R','S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'</p>
+    
+    <div class="sidebar" id="shifrBox">
+        
         <p id="put"></p>
     </div>
-    <button class="najat" onclick="shifr()">Зашифровать</button>
+
+  <script src="script/script.js"></script>
 </body>
 </html>
-<script src="script.js"></script>
