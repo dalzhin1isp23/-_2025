@@ -3,23 +3,33 @@ const http = require("http");
 const path = require("path");
 
 const server = http.createServer((req, res) => {
-  const url = req.url === "/" ? "/index.html" : req.url;
-  const filePath = path.join(__dirname, "temp", url);
+  const url = req.url;
 
-  const extname = path.extname(url);
-  const mimeTypes = {
-    ".html": "text/html",
-    ".css": "text/css",
-    ".js": "application/javascript",
-    ".png": "image/png",
-    ".jpg": "image/jpeg"
-  };
-  const contentType = mimeTypes[extname] || "text/html";
+  let filePath;
+  let contentType = "text/html";
+
+  // Явные маршруты
+  if (url === '/' || url === '/index.html') {
+    filePath = path.join(__dirname, "temp", "index.html");
+  } else if (url === '/style.css') {
+    filePath = path.join(__dirname, "temp", "index.css");
+    contentType = "text/css";
+  } else if (url === '/script.js') {
+    filePath = path.join(__dirname, "temp", "script", "script.js");
+    contentType = "application/javascript";
+  } else if (url === '/404.jpg') {
+    filePath = path.join(__dirname, "temp", "img", "404.jpg");
+    contentType = "image/png";
+  } else {
+    filePath = path.join(__dirname, "temp", "page", "404.html");
+    
+  }
 
   fs.readFile(filePath, (err, content) => {
     if (err) {
       if (err.code === "ENOENT") {
-        fs.createReadStream(path.join(__dirname, "temp/page/404.html")).pipe(res);
+        res.writeHead(404, { "Content-Type": "text/html" });
+        res.end("<h1>404 — Страница не найдена</h1>");
       } else {
         res.writeHead(500);
         res.end("Ошибка сервера");
