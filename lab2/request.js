@@ -8,7 +8,6 @@ const server = http.createServer((req, res) => {
   let filePath;
   let contentType = "text/html";
 
-  // Явные маршруты
   if (url === '/' || url === '/index.html') {
     filePath = path.join(__dirname, "temp", "index.html");
   } else if (url === '/style.css') {
