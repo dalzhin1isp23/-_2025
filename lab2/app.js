@@ -1,7 +1,7 @@
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
-
+const dmmy= require('https://dummyjson.com/products?limit=10&skip=10&select=title,price');
 const server = http.createServer((req, res) => {
   const url = req.url;
 
@@ -9,7 +9,8 @@ const server = http.createServer((req, res) => {
   let contentType = "text/html";
 
   if (url === '/' || url === '/index.html') {
-    filePath = path.join(__dirname, "temp", "index.html");
+    filePath = path.join("app.html");
+    console.log(dmmy.id)
   } else if (url === '/style.css') {
     filePath = path.join(__dirname, "temp", "index.css");
     contentType = "text/css";
